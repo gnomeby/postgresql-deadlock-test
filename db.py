@@ -1,4 +1,5 @@
 from contextlib import contextmanager
+from traceback import extract_stack
 
 from sqlalchemy import create_engine
 from sqlalchemy.exc import OperationalError
@@ -28,8 +29,11 @@ def connection():
 
 
 @contextmanager
-def transaction():
+def transaction(application_name=None):
     with connection() as conn:
+        if application_name is None:
+            caller = extract_stack()[-3]
+            conn.execution_options(autocommit=True).execute("SET application_name = %s", '%s:%s' % (caller[0], caller[1]))
         with conn.begin() as trans:
             try:
                 yield conn
