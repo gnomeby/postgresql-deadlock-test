@@ -9,9 +9,12 @@ engine = create_engine('postgresql+psycopg2://postgres:12345678@localhost/postgr
 def log_pg_stat_activity():
     '''Log, write or send through Sentry pg_stat_activity'''
     debug_conn = engine.connect()
+
+    # In real life use all fields from pg_stat_activity for logging
     for process in debug_conn.execute('''
         SELECT pid, application_name, state, query FROM pg_stat_activity;
     ''').fetchall():
+        # Log sessions
         print(process)
 
 @contextmanager
