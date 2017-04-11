@@ -1,2 +1,11 @@
 # postgresql-deadlock-test
-PostgreSQL deadlock test, education repository.
+PostgreSQL deadlock test scripts. Aim is using in educational purposes.
+
+## Install
+
+* Create empty DB in PostgreSQL
+* Change credentials in db.py
+
+## Using
+
+* python deadlock_test.py
