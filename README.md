@@ -8,4 +8,6 @@ PostgreSQL deadlock test scripts. Aim is using in educational purposes.
 
 ## Using
 
-* python deadlock_test.py
+```bash
+python deadlock_test.py
+```
