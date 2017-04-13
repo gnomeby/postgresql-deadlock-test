@@ -3,6 +3,8 @@ PostgreSQL deadlock test scripts. Aim is using in educational purposes.
 
 ## Install
 
+* Create new virtualenv
+* Install requirements
 * Create empty DB in PostgreSQL
 * Change credentials in db.py
 * Create Table with data
